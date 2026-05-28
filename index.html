@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="images/logo.png" />
 <title>Syberdomedotdev — Full Stack Developer</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,7 +22,8 @@
           dim:     '#4a5568',
           ghost:   '#6b7891',
           soft:    '#94a3b8',
-          lime:    '#c8ff47',
+          blue:    '#c8ff47',
+          blue:    '#6366f1',
           cyan:    '#47d9ff',
           amber:   '#ffb347',
           rose:    '#ff6b8a',
@@ -122,7 +124,7 @@
   }
 
   /* Gradient text */
-  .text-gradient-lime {
+  .text-gradient-blue {
     background: linear-gradient(135deg, #6366f1 0%, #38bdf8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -262,7 +264,7 @@
 <nav>
   <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
     <a href="#" class="flex items-center gap-2 text-white font-display font-bold text-lg no-underline">
-      <span>Syberdome<span class="text-lime">dot</span>dev</span>
+      <span>Syberdome<span class="text-gradient-blue">dot</span>dev</span>
     </a>
 
     <!-- Desktop nav -->
@@ -296,7 +298,7 @@
 <!-- ─── HERO ─────────────────────────────────────────────────── -->
 <section class="grid-bg relative min-h-screen flex items-center pt-16 overflow-hidden">
   <!-- Glow orbs -->
-  <div class="glow-orb w-96 h-96 bg-lime opacity-[0.04] -top-20 -right-20"></div>
+  <div class="glow-orb w-96 h-96 bg-blue opacity-[0.04] -top-20 -right-20"></div>
   <div class="glow-orb w-80 h-80 bg-cyan opacity-[0.04] bottom-20 -left-20"></div>
 
   <div class="max-w-7xl mx-auto px-6 py-24 w-full relative z-10">
@@ -305,13 +307,13 @@
       <!-- Left copy -->
       <div>
         <div class="flex items-center gap-3 mb-8">
-          <div class="w-2 h-2 rounded-full bg-lime pulse-glow"></div>
+          <div class="w-2 h-2 rounded-full bg-blue pulse-glow"></div>
           <span class="section-label">Available for work</span>
         </div>
 
         <h1 class="font-display text-5xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
           Full Stack<br />
-          <span class="text-gradient-lime">Developer</span><br />
+          <span class="text-gradient-blue">Developer</span><br />
           <span class="font-serif italic font-normal text-4xl lg:text-5xl text-soft">& Problem Solver</span>
         </h1>
 
@@ -320,8 +322,8 @@
         </p>
 
         <div class="font-mono text-sm text-dim mb-10 flex items-center gap-1">
-          <span class="text-lime">$</span>
-          <span id="typewriter"></span><span class="cursor-blink text-lime">▋</span>
+          <span class="text-blue">$</span>
+          <span id="typewriter"></span><span class="cursor-blink text-blue">▋</span>
         </div>
 
         <div class="flex flex-wrap gap-4">
@@ -347,7 +349,7 @@
       <div class="hidden lg:block relative">
         <!-- Rotating ring decoration -->
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div class="w-96 h-96 rounded-full border border-lime border-opacity-5 spin-slow"></div>
+          <div class="w-96 h-96 rounded-full border border-blue border-opacity-5 spin-slow"></div>
           <div class="absolute w-72 h-72 rounded-full border border-dashed border-cyan border-opacity-5"
                style="animation: spin-slow 14s linear infinite reverse;"></div>
         </div>
@@ -359,24 +361,24 @@
           <div class="flex items-center gap-2 px-4 py-3 bg-surface border-b border-border">
             <div class="w-3 h-3 rounded-full bg-rose opacity-80"></div>
             <div class="w-3 h-3 rounded-full bg-amber opacity-80"></div>
-            <div class="w-3 h-3 rounded-full bg-lime opacity-80"></div>
+            <div class="w-3 h-3 rounded-full bg-blue opacity-80"></div>
             <span class="ml-3 text-dim text-xs">manage.py</span>
           </div>
           <div class="p-6 text-sm">
           <pre class="text-soft leading-7" style="white-space:pre-wrap">
             <span class="text-rose">#!/usr/bin/env python</span>
-            <span class="text-lime">"""Django's command-line utility for administrative tasks."""</span>
+            <span class="text-blue">"""Django's command-line utility for administrative tasks."""</span>
 
             <span class="text-cyan">import</span> <span class="text-white">os</span>
             <span class="text-cyan">import</span> <span class="text-white">sys</span>
 
 
             <span class="text-cyan">def</span> <span class="text-white">main</span><span class="text-ghost">():</span>
-                <span class="text-lime">"""Run administrative tasks."""</span>
+                <span class="text-blue">"""Run administrative tasks."""</span>
 
                 <span class="text-white">os</span><span class="text-ghost">.</span><span class="text-white">environ</span><span class="text-ghost">.</span><span class="text-white">setdefault</span><span class="text-ghost">(</span>
-                    <span class="text-lime">'DJANGO_SETTINGS_MODULE'</span><span class="text-ghost">,</span>
-                    <span class="text-lime">'cattreatment.settings'</span>
+                    <span class="text-blue">'DJANGO_SETTINGS_MODULE'</span><span class="text-ghost">,</span>
+                    <span class="text-blue">'cattreatment.settings'</span>
                 <span class="text-ghost">)</span>
 
                 <span class="text-cyan">try</span><span class="text-ghost">:</span>
@@ -387,7 +389,7 @@
           <!-- Status bar -->
           <div class="flex items-center justify-between px-4 py-2 bg-surface border-t border-border text-xs text-dim font-mono">
             <span class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-lime"></span>Python
+              <span class="w-2 h-2 rounded-full bg-blue"></span>Python
             </span>
             <span>(Django)</span>
           </div>
@@ -445,7 +447,7 @@
           </div>
           <div class="absolute -left-6 bottom-16 bg-panel border border-border rounded-xl px-4 py-3 shadow-xl">
             <div class="flex items-center gap-2">
-              <div class="w-2 h-2 rounded-full bg-lime pulse-glow"></div>
+              <div class="w-2 h-2 rounded-full bg-blue pulse-glow"></div>
               <span class="text-xs text-ghost font-mono">Open to work</span>
             </div>
           </div>
@@ -457,7 +459,7 @@
         <div class="section-label mb-4">// about me</div>
         <h2 class="font-display text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
           Crafting digital<br />
-          <span class="font-serif italic font-normal text-gradient-lime">experiences</span>
+          <span class="font-serif italic font-normal text-gradient-blue">experiences</span>
         </h2>
 
         <div class="space-y-4 text-ghost leading-relaxed">
@@ -608,13 +610,13 @@
       <div class="reveal lg:col-span-2 card-lift bg-panel border border-border rounded-2xl overflow-hidden group">
         <div class="h-auto flex items-center justify-center relative overflow-hidden"
              style="background: linear-gradient(135deg, #111318 0%, #161a22 100%);">
-          <div class="glow-orb w-48 h-48 bg-lime opacity-10 -top-10 -right-10"></div>
+          <div class="glow-orb w-48 h-48 bg-blue opacity-10 -top-10 -right-10"></div>
           <!-- UI preview mockup -->
           <div class="relative z-10 w-4/5 bg-void rounded-xl border border-border shadow-2xl overflow-hidden">
             <div class="flex items-center gap-2 px-4 py-2.5 border-b border-border bg-surface">
               <div class="w-2 h-2 rounded-full bg-rose opacity-70"></div>
               <div class="w-2 h-2 rounded-full bg-amber opacity-70"></div>
-              <div class="w-2 h-2 rounded-full bg-lime opacity-70"></div>
+              <div class="w-2 h-2 rounded-full bg-blue opacity-70"></div>
               <span class="ml-2 text-dim text-xs font-mono">https://haciendailuminadaprivateresorts.com</span>
             </div>
             <div class="p-4 flex gap-4">
@@ -633,7 +635,7 @@
               </div>
               <h3 class="font-display font-bold text-white text-2xl">Hacienda Ilumidata Private Resort</h3>
             </div>
-            <a href="https://haciendailuminadaprivateresorts.com" class="text-ghost hover:text-lime transition-colors" target="_blank" rel="noopener noreferrer">
+            <a href="https://haciendailuminadaprivateresorts.com" class="text-ghost hover:text-blue transition-colors" target="_blank" rel="noopener noreferrer">
               <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
             </a>
           </div>
@@ -658,7 +660,7 @@
               </div>
               <h3 class="font-display font-bold text-white text-xl">Real Shop Appointment System</h3>
             </div>
-            <a href="https://realweldingshop.com/" class="text-ghost hover:text-lime transition-colors">
+            <a href="https://realweldingshop.com/" class="text-ghost hover:text-blue transition-colors">
               <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
             </a>
           </div>
@@ -682,7 +684,7 @@
             <div>
               <h3 class="font-display font-bold text-white text-xl">Human Resource Information System</h3>
             </div>
-            <a href="#" class="text-ghost hover:text-lime transition-colors">
+            <a href="#" class="text-ghost hover:text-blue transition-colors">
               <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
             </a>
           </div>
@@ -699,13 +701,13 @@
        <div class="reveal lg:col-span-2 card-lift bg-panel border border-border rounded-2xl overflow-hidden group">
         <div class="h-auto flex items-center justify-center relative overflow-hidden"
              style="background: linear-gradient(135deg, #111318 0%, #161a22 100%);">
-          <div class="glow-orb w-48 h-48 bg-lime opacity-10 -top-10 -right-10"></div>
+          <div class="glow-orb w-48 h-48 bg-blue opacity-10 -top-10 -right-10"></div>
           <!-- UI preview mockup -->
           <div class="relative z-10 w-4/5 bg-void rounded-xl border border-border shadow-2xl overflow-hidden">
             <div class="flex items-center gap-2 px-4 py-2.5 border-b border-border bg-surface">
               <div class="w-2 h-2 rounded-full bg-rose opacity-70"></div>
               <div class="w-2 h-2 rounded-full bg-amber opacity-70"></div>
-              <div class="w-2 h-2 rounded-full bg-lime opacity-70"></div>
+              <div class="w-2 h-2 rounded-full bg-blue opacity-70"></div>
               <span class="ml-2 text-dim text-xs font-mono">https://pawsnpurrshop.com/</span>
             </div>
             <div class="p-4 flex gap-4">
@@ -723,7 +725,7 @@
               </div>
               <h3 class="font-display font-bold text-white text-2xl">Paws & Purr Shop</h3>
             </div>
-            <a href="https://pawsnpurrshop.com" class="text-ghost hover:text-lime transition-colors" target="_blank" rel="noopener noreferrer">
+            <a href="https://pawsnpurrshop.com" class="text-ghost hover:text-blue transition-colors" target="_blank" rel="noopener noreferrer">
               <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
             </a>
           </div>
@@ -741,7 +743,7 @@
   class="py-32 px-6 relative"
   style="background: linear-gradient(180deg, transparent, rgba(17,19,24,0.6));"
 >
-  <div class="glow-orb w-72 h-72 bg-lime opacity-[0.035] top-20 left-1/2 -translate-x-1/2"></div>
+  <div class="glow-orb w-72 h-72 bg-blue opacity-[0.035] top-20 left-1/2 -translate-x-1/2"></div>
 
   <div class="max-w-4xl mx-auto relative">
     <!-- Heading -->
@@ -750,7 +752,7 @@
 
       <h2 class="font-display text-4xl lg:text-5xl font-bold text-white mb-6">
         Get in
-        <span class="font-serif italic font-normal text-gradient-lime">touch</span>
+        <span class="font-serif italic font-normal text-gradient-blue">touch</span>
       </h2>
 
       <p class="text-ghost max-w-2xl mx-auto">
@@ -762,9 +764,9 @@
     <!-- Contact Cards -->
     <div class="reveal grid md:grid-cols-2 gap-6">
       <!-- Email -->
-      <div class="bg-panel border border-border rounded-2xl p-8 hover:border-lime/30 transition-all duration-300">
+      <div class="bg-panel border border-border rounded-2xl p-8 hover:border-blue/30 transition-all duration-300">
         <div class="flex items-start gap-4">
-          <div class="w-12 h-12 rounded-xl bg-lime/10 border border-lime/20 flex items-center justify-center text-lime text-xl">
+          <div class="w-12 h-12 rounded-xl bg-blue/10 border border-blue/20 flex items-center justify-center text-blue text-xl">
             ✉
           </div>
 
@@ -773,14 +775,14 @@
 
             <a
               href="mailto:syberdomedotdev@gmail.com"
-              class="text-white hover:text-lime transition-colors text-lg font-medium break-all"
+              class="text-white hover:text-blue transition-colors text-lg font-medium break-all"
             >
               syberdomedotdev@gmail.com
             </a>
             <br/>
              <a
               href="mailto:syberdomedotdev@gmail.com"
-              class="text-white hover:text-lime transition-colors text-lg font-medium break-all"
+              class="text-white hover:text-blue transition-colors text-lg font-medium break-all"
             >
               xyernkc@gmail.com
             </a>
@@ -793,9 +795,9 @@
       </div>
 
       <!-- Location -->
-      <div class="bg-panel border border-border rounded-2xl p-8 hover:border-lime/30 transition-all duration-300">
+      <div class="bg-panel border border-border rounded-2xl p-8 hover:border-blue/30 transition-all duration-300">
         <div class="flex items-start gap-4">
-          <div class="w-12 h-12 rounded-xl bg-lime/10 border border-lime/20 flex items-center justify-center text-lime text-xl">
+          <div class="w-12 h-12 rounded-xl bg-blue/10 border border-blue/20 flex items-center justify-center text-blue text-xl">
             📍
           </div>
 
@@ -814,9 +816,9 @@
       </div>
 
       <!-- Phone -->
-      <div class="bg-panel border border-border rounded-2xl p-8 hover:border-lime/30 transition-all duration-300">
+      <div class="bg-panel border border-border rounded-2xl p-8 hover:border-blue/30 transition-all duration-300">
         <div class="flex items-start gap-4">
-          <div class="w-12 h-12 rounded-xl bg-lime/10 border border-lime/20 flex items-center justify-center text-lime text-xl">
+          <div class="w-12 h-12 rounded-xl bg-blue/10 border border-blue/20 flex items-center justify-center text-blue text-xl">
             ☎
           </div>
 
@@ -825,7 +827,7 @@
 
             <a
               href="tel:+639123456789"
-              class="text-white hover:text-lime transition-colors text-lg font-medium"
+              class="text-white hover:text-blue transition-colors text-lg font-medium"
             >
               +63 9094196766
             </a>
@@ -838,9 +840,9 @@
       </div>
 
       <!-- Social -->
-      <div class="bg-panel border border-border rounded-2xl p-8 hover:border-lime/30 transition-all duration-300">
+      <div class="bg-panel border border-border rounded-2xl p-8 hover:border-blue/30 transition-all duration-300">
         <div class="flex items-start gap-4">
-          <div class="w-12 h-12 rounded-xl bg-lime/10 border border-lime/20 flex items-center justify-center text-lime text-xl">
+          <div class="w-12 h-12 rounded-xl bg-blue/10 border border-blue/20 flex items-center justify-center text-blue text-xl">
             ⌘
           </div>
 
@@ -850,21 +852,21 @@
             <div class="flex flex-wrap gap-4">
               <a
                 href="https://github.com/Xyern07" target="_blank" rel="noopener noreferrer"
-                class="text-white hover:text-lime transition-colors"
+                class="text-white hover:text-blue transition-colors"
               >
                 GitHub
               </a>
 
               <a
                 href="https://www.linkedin.com/in/xyern-keith-carlos-07a446408/" target="_blank" rel="noopener noreferrer"
-                class="text-white hover:text-lime transition-colors"
+                class="text-white hover:text-blue transition-colors"
               >
                 LinkedIn
               </a>
 
               <a
                 href="https://www.facebook.com/dotsenpayk" target="_blank" rel="noopener noreferrer"
-                class="text-white hover:text-lime transition-colors"
+                class="text-white hover:text-blue transition-colors"
               >
                 Facebook
               </a>
@@ -884,13 +886,13 @@
 <footer class="border-t border-border py-10 px-6">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
     <div class="flex items-center gap-2 text-white font-display font-bold">
-      <span>Syberdome<span class="text-lime">dot</span>dev</span>
+      <span>Syberdome<span class="text-gradient-blue">dot</span>dev</span>
     </div>
     <p class="text-dim text-sm font-mono">
       © 2025 Syberdomedotdev. All rights reserved.
     </p>
     <div class="flex items-center gap-1 text-dim text-sm font-mono">
-      <div class="w-1.5 h-1.5 rounded-full bg-lime pulse-glow"></div>
+      <div class="w-1.5 h-1.5 rounded-full bg-blue pulse-glow"></div>
       <span>All systems operational</span>
     </div>
   </div>
