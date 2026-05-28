@@ -9,250 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          void:    '#0d0f13',
-          surface: '#111318',
-          panel:   '#161a22',
-          border:  '#1e2330',
-          muted:   '#2a3040',
-          dim:     '#4a5568',
-          ghost:   '#6b7891',
-          soft:    '#94a3b8',
-          blue:    '#c8ff47',
-          blue:    '#6366f1',
-          cyan:    '#47d9ff',
-          amber:   '#ffb347',
-          rose:    '#ff6b8a',
-        },
-        fontFamily: {
-          display: ['Syne', 'sans-serif'],
-          mono:    ['DM Mono', 'monospace'],
-          serif:   ['Instrument Serif', 'serif'],
-        },
-      }
-    }
-  }
-</script>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    background-color: #0b0f17;
-    color: #cbd5e1;
-    font-family: 'Syne', sans-serif;
-    overflow-x: hidden;
-    cursor: none;
-  }
-
-  /* Cursor */
-  .cursor {
-    width: 10px; height: 10px;
-    background: #6366f1;
-    border-radius: 50%;
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.15s ease, opacity 0.15s ease;
-    mix-blend-mode: difference;
-  }
-
-  .cursor-ring {
-    width: 36px; height: 36px;
-    border: 1px solid rgba(99,102,241,0.4);
-    border-radius: 50%;
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 9998;
-    transition: all 0.12s ease;
-  }
-
-  /* Grid background */
-  .grid-bg {
-    background-image:
-      linear-gradient(rgba(99,102,241,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(99,102,241,0.05) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-
-  /* Noise */
-  .noise::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.35;
-  }
-
-  /* Glow */
-  .glow-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    pointer-events: none;
-    background: #6366f1;
-    opacity: 0.08;
-  }
-
-  /* Nav */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    backdrop-filter: blur(20px);
-    background: rgba(11,15,23,0.85);
-    border-bottom: 1px solid rgba(30,41,59,0.6);
-  }
-
-  /* Reveal */
-  .reveal {
-    opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Gradient text */
-  .text-gradient-blue {
-    background: linear-gradient(135deg, #6366f1 0%, #38bdf8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .text-gradient-amber {
-    background: linear-gradient(135deg, #fbbf24 0%, #fb7185 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  /* Card */
-  .card-lift {
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .card-lift:hover {
-    transform: translateY(-6px);
-    border-color: rgba(99,102,241,0.35);
-    box-shadow: 0 20px 60px rgba(99,102,241,0.12);
-  }
-
-  /* Tags */
-  .tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 3px 10px;
-    border-radius: 999px;
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    background: rgba(99,102,241,0.08);
-    color: #a5b4fc;
-    border: 1px solid rgba(99,102,241,0.2);
-  }
-
-  .tag-cyan {
-    background: rgba(56,189,248,0.08);
-    color: #38bdf8;
-    border-color: rgba(56,189,248,0.2);
-  }
-
-  .tag-amber {
-    background: rgba(251,191,36,0.08);
-    color: #fbbf24;
-    border-color: rgba(251,191,36,0.2);
-  }
-
-  /* Nav links */
-  .nav-link {
-    color: #94a3b8;
-    font-size: 13px;
-    font-family: 'DM Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    transition: color 0.2s;
-  }
-
-  .nav-link:hover {
-    color: #6366f1;
-  }
-
-  /* Buttons */
-  .btn-primary {
-    background: #6366f1;
-    color: #0b0f17;
-    padding: 14px 28px;
-    border-radius: 6px;
-    font-family: 'DM Mono', monospace;
-    transition: 0.2s;
-  }
-
-  .btn-primary:hover {
-    background: #818cf8;
-    transform: translateY(-2px);
-  }
-
-  .btn-outline {
-    border: 1px solid rgba(99,102,241,0.4);
-    color: #a5b4fc;
-    padding: 13px 28px;
-    border-radius: 6px;
-  }
-
-  .btn-outline:hover {
-    background: rgba(99,102,241,0.08);
-  }
-
-  /* Section label */
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    color: #6366f1;
-  }
-
-  /* Progress */
-  .progress-track {
-    height: 3px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 999px;
-  }
-
-  .progress-fill {
-    background: linear-gradient(90deg, #6366f1, #38bdf8);
-  }
-
-  /* Timeline dot */
-  .timeline-dot {
-    background: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
-  }
-
-  /* Inputs */
-  .contact-input {
-    background: rgba(15,23,42,0.8);
-    border: 1px solid rgba(30,41,59,0.9);
-    color: #cbd5e1;
-  }
-
-  .contact-input:focus {
-    border-color: rgba(99,102,241,0.5);
-  }
-
-  /* Scrollbar */
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: #0b0f17; }
-  ::-webkit-scrollbar-thumb { background: #1e293b; }
-</style>
+<link rel="stylesheet" href="main.css" />
+<script src="main.js" defer></script>
 </head>
 <body class="noise">
 
@@ -287,7 +45,7 @@
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="flex-col gap-0 bg-surface border-t border-border md:hidden">
+  <div id="mobile-menu" class="hidden flex-col gap-0 bg-surface border-t border-border md:hidden">
     <a href="#about"    class="nav-link px-6 py-4 border-b border-border block">About</a>
     <a href="#skills"   class="nav-link px-6 py-4 border-b border-border block">Skills</a>
     <a href="#projects" class="nav-link px-6 py-4 border-b border-border block">Projects</a>
@@ -301,8 +59,8 @@
   <div class="glow-orb w-96 h-96 bg-blue opacity-[0.04] -top-20 -right-20"></div>
   <div class="glow-orb w-80 h-80 bg-cyan opacity-[0.04] bottom-20 -left-20"></div>
 
-  <div class="max-w-7xl mx-auto px-6 py-24 w-full relative z-10">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 py-16 sm:py-24 w-full relative z-10">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
       <!-- Left copy -->
       <div>
@@ -311,10 +69,10 @@
           <span class="section-label">Available for work</span>
         </div>
 
-        <h1 class="font-display text-5xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
           Full Stack<br />
           <span class="text-gradient-blue">Developer</span><br />
-          <span class="font-serif italic font-normal text-4xl lg:text-5xl text-soft">& Problem Solver</span>
+          <span class="font-serif italic font-normal text-2xl sm:text-3xl lg:text-5xl text-soft">& Problem Solver</span>
         </h1>
 
         <p class="text-ghost text-lg leading-relaxed mb-4 max-w-lg">
@@ -332,7 +90,7 @@
         </div>
 
         <!-- Stats row -->
-        <div class="flex gap-10 mt-14 pt-10 border-t border-border">
+        <div class="flex flex-wrap gap-6 sm:gap-10 mt-10 pt-8 border-t border-border">
           <div>
             <div class="font-display text-3xl font-bold text-white">5+</div>
             <div class="text-ghost text-sm mt-1">Years experience</div>
@@ -470,28 +228,28 @@
 
         <!-- Timeline -->
         <div class="mt-10 space-y-5">
-          <div class="flex gap-4">
+          <div class="flex items-start gap-4">
             <div class="timeline-dot mt-1.5"></div>
             <div>
               <div class="text-white font-display font-semibold">Full Stack Web Application Developer (ICTO LGU Kidapawan)</div>
               <div class="text-dim text-sm font-mono mt-0.5">July 2023 → Present</div>
             </div>
           </div>
-           <div class="flex gap-4">
+           <div class="flex items-start gap-4">
             <div class="timeline-dot bg-cyan mt-1.5" style="background:#ff4747; box-shadow:0 0 0 3px rgba(71,217,255,0.15)"></div>
             <div>
               <div class="text-white font-display font-semibold">Freelance Video Editor/Graohic Designer</div>
               <div class="text-dim text-sm font-mono mt-0.5">Feb 2021 → Present</div>
             </div>
           </div>
-          <div class="flex gap-4">
+          <div class="flex items-start gap-4">
             <div class="timeline-dot bg-cyan mt-1.5" style="box-shadow:0 0 0 3px rgba(71,217,255,0.15)"></div>
             <div>
               <div class="text-white font-display font-semibold">Freelance Developer/Programmer</div>
               <div class="text-dim text-sm font-mono mt-0.5">Feb 2021 → July 2023</div>
             </div>
           </div>
-          <div class="flex gap-4">
+          <div class="flex items-start gap-4">
             <div class="timeline-dot" style="background:#ffb347; box-shadow:0 0 0 3px rgba(255,179,71,0.15); margin-top:6px"></div>
             <div>
               <div class="text-white font-display font-semibold">Remotask (Remotask Philippines)</div>
@@ -525,7 +283,7 @@
     <div class="grid md:grid-cols-3 gap-6">
 
       <!-- Frontend -->
-      <div class="bg-panel border border-border rounded-2xl p-8">
+      <div class="bg-panel border border-border rounded-2xl p-6 sm:p-8">
         <h3 class="text-white font-bold text-xl mb-3">Frontend Development</h3>
         <p class="text-ghost text-sm mb-6">
           Clean, responsive, and interactive user interfaces that work on all devices.
@@ -541,7 +299,7 @@
       </div>
 
       <!-- Backend -->
-      <div class="bg-panel border border-border rounded-2xl p-8">
+      <div class="bg-panel border border-border rounded-2xl p-6 sm:p-8">
         <h3 class="text-white font-bold text-xl mb-3">Backend Development</h3>
         <p class="text-ghost text-sm mb-6">
           Secure APIs and systems that power your applications efficiently.
@@ -557,7 +315,7 @@
       </div>
 
       <!-- DevOps -->
-      <div class="bg-panel border border-border rounded-2xl p-8">
+      <div class="bg-panel border border-border rounded-2xl p-6 sm:p-8">
         <h3 class="text-white font-bold text-xl mb-3">Deployment & Cloud</h3>
         <p class="text-ghost text-sm mb-6">
           I make sure your applications are fast, secure, and production-ready.
@@ -612,12 +370,12 @@
              style="background: linear-gradient(135deg, #111318 0%, #161a22 100%);">
           <div class="glow-orb w-48 h-48 bg-blue opacity-10 -top-10 -right-10"></div>
           <!-- UI preview mockup -->
-          <div class="relative z-10 w-4/5 bg-void rounded-xl border border-border shadow-2xl overflow-hidden">
+          <div class="relative z-10 w-[95%] sm:w-4/5 bg-void rounded-xl border border-border shadow-2xl overflow-hidden">
             <div class="flex items-center gap-2 px-4 py-2.5 border-b border-border bg-surface">
               <div class="w-2 h-2 rounded-full bg-rose opacity-70"></div>
               <div class="w-2 h-2 rounded-full bg-amber opacity-70"></div>
               <div class="w-2 h-2 rounded-full bg-blue opacity-70"></div>
-              <span class="ml-2 text-dim text-xs font-mono">https://haciendailuminadaprivateresorts.com</span>
+              <span class="ml-2 text-dim text-[10px] sm:text-xs font-mono break-all">https://haciendailuminadaprivateresorts.com</span>
             </div>
             <div class="p-4 flex gap-4">
               <img src="images/haciendailuminada.png" alt="Project screenshot" class="rounded-lg border border-border object-cover w-full h-auto" />
@@ -708,7 +466,7 @@
               <div class="w-2 h-2 rounded-full bg-rose opacity-70"></div>
               <div class="w-2 h-2 rounded-full bg-amber opacity-70"></div>
               <div class="w-2 h-2 rounded-full bg-blue opacity-70"></div>
-              <span class="ml-2 text-dim text-xs font-mono">https://pawsnpurrshop.com/</span>
+              <span class="ml-2 text-dim text-[10px] sm:text-xs font-mono break-all">https://pawsnpurrshop.com/</span>
             </div>
             <div class="p-4 flex gap-4">
               <img src="images/pawsnpurr.png" alt="Project screenshot" class="rounded-lg border border-border object-cover w-full h-auto" />
@@ -764,7 +522,7 @@
     <!-- Contact Cards -->
     <div class="reveal grid md:grid-cols-2 gap-6">
       <!-- Email -->
-      <div class="bg-panel border border-border rounded-2xl p-8 hover:border-blue/30 transition-all duration-300">
+      <div class="bg-panel border border-border rounded-2xl p-6 sm:p-8 hover:border-blue/30 transition-all duration-300">
         <div class="flex items-start gap-4">
           <div class="w-12 h-12 rounded-xl bg-blue/10 border border-blue/20 flex items-center justify-center text-blue text-xl">
             ✉
@@ -795,7 +553,7 @@
       </div>
 
       <!-- Location -->
-      <div class="bg-panel border border-border rounded-2xl p-8 hover:border-blue/30 transition-all duration-300">
+      <div class="bg-panel border border-border rounded-2xl p-6 sm:p-8 hover:border-blue/30 transition-all duration-300">
         <div class="flex items-start gap-4">
           <div class="w-12 h-12 rounded-xl bg-blue/10 border border-blue/20 flex items-center justify-center text-blue text-xl">
             📍
@@ -816,7 +574,7 @@
       </div>
 
       <!-- Phone -->
-      <div class="bg-panel border border-border rounded-2xl p-8 hover:border-blue/30 transition-all duration-300">
+      <div class="bg-panel border border-border rounded-2xl p-6 sm:p-8 hover:border-blue/30 transition-all duration-300">
         <div class="flex items-start gap-4">
           <div class="w-12 h-12 rounded-xl bg-blue/10 border border-blue/20 flex items-center justify-center text-blue text-xl">
             ☎
@@ -840,7 +598,7 @@
       </div>
 
       <!-- Social -->
-      <div class="bg-panel border border-border rounded-2xl p-8 hover:border-blue/30 transition-all duration-300">
+      <div class="bg-panel border border-border rounded-2xl p-6 sm:p-8 hover:border-blue/30 transition-all duration-300">
         <div class="flex items-start gap-4">
           <div class="w-12 h-12 rounded-xl bg-blue/10 border border-blue/20 flex items-center justify-center text-blue text-xl">
             ⌘
@@ -897,66 +655,5 @@
     </div>
   </div>
 </footer>
-
-<script>
-  // Custom cursor
-  const cursor = document.getElementById('cursor');
-  const ring   = document.getElementById('cursor-ring');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-  function animCursor() {
-    cursor.style.transform = `translate(${mx-5}px,${my-5}px)`;
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.transform = `translate(${rx-18}px,${ry-18}px)`;
-    requestAnimationFrame(animCursor);
-  }
-  animCursor();
-
-  // Typewriter
-  const phrases = [
-    'npx create-next-app@latest',
-    'docker compose up --build',
-    'git push origin main',
-    'kubectl apply -f deployment.yml',
-    'cargo run --release',
-  ];
-  let pi = 0, ci = 0, del = false;
-  const tw = document.getElementById('typewriter');
-  function typeNext() {
-    const phrase = phrases[pi];
-    if (!del) {
-      tw.textContent = phrase.slice(0, ++ci);
-      if (ci === phrase.length) { del = true; setTimeout(typeNext, 1800); return; }
-    } else {
-      tw.textContent = phrase.slice(0, --ci);
-      if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; }
-    }
-    setTimeout(typeNext, del ? 40 : 70);
-  }
-  typeNext();
-
-  // Intersection observer for reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-  }, { threshold: 0.08 });
-  reveals.forEach(el => io.observe(el));
-
-  // Mobile menu
-  document.getElementById('hamburger').addEventListener('click', () => {
-    document.getElementById('mobile-menu').classList.toggle('open');
-  });
-
-  // Render tech tag strip
-  const tags = ['React','Next.js','TypeScript','Node.js','Go','PostgreSQL','Redis','Docker','Kubernetes','AWS','GCP','Terraform','GraphQL','Prisma','Tailwind CSS','Vite','GitHub Actions','Vercel'];
-  document.querySelectorAll('[id^="tags"]').forEach(() => {});
-  const strip = document.querySelector('.flex.flex-wrap.justify-center.gap-3');
-  if (strip) {
-    strip.innerHTML = tags.map((t,i) =>
-      `<span class="tag ${i%3===1?'tag-cyan':i%3===2?'tag-amber':''}">${t}</span>`
-    ).join('');
-  }
-</script>
 </body>
 </html>
