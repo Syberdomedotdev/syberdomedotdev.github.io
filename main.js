@@ -76,7 +76,7 @@
   });
 
   // Render tech tag strip
-  const tags = ['React','Next.js','TypeScript','Node.js','Go','PostgreSQL','Redis','Docker','Kubernetes','AWS','GCP','Terraform','GraphQL','Prisma','Tailwind CSS','Vite','GitHub Actions','Vercel'];
+  const tags = ['Php','Laravel','Python','Django','WordPress', 'Webflow','Vue.js','Javascript','TypeScript','Redis','Docker', 'Celery', 'Tailwind CSS','Vite','GitHub Actions'];
   document.querySelectorAll('[id^="tags"]').forEach(() => {});
   const strip = document.querySelector('.flex.flex-wrap.justify-center.gap-3');
   if (strip) {
